@@ -35,7 +35,6 @@ class Acr_smsServiceProvider extends ServiceProvider
         config([
             '/../config/AcrSmsConfig.php',
         ]);
-
     }
 
 }

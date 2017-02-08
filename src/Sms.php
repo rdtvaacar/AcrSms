@@ -36,12 +36,12 @@ class Sms extends Model
 
     function gruplar()
     {
-        return Sms_grup::where('kurum_id', self::kurum_id())->where('sil', 0)->get();
+        return Sms_grup::where('kurum_id', self::kurum_id())->where('sil', 0)->orderBy('sg_isim', 'asc')->get();
     }
 
     function numaralar()
     {
-        return Sms_rehber::where('kurum_id', self::kurum_id())->where('sil', 0)->get();
+        return Sms_rehber::where('kurum_id', self::kurum_id())->where('sil', 0)->orderBy('sr_isim', 'asc')->get();
     }
 
     function miktar()
@@ -73,7 +73,7 @@ class Sms extends Model
 
     function smsler()
     {
-        return Sms::where('kurum_id', self::kurum_id())->where('sil', 0)->get();
+        return Sms::where('kurum_id', self::kurum_id())->where('sil', 0)->orderBy('id', 'desc')->get();
     }
 
     function sms_list($sms_id)
