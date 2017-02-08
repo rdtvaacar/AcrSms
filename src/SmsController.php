@@ -30,7 +30,7 @@ class SmsController extends Controller
 
     function __construct()
     {
-        $config = Config::get("AcrSmsConfig");
+        $this->config = Config::get("AcrSmsConfig");
     }
 
     function index()
