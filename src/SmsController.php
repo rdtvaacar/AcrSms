@@ -28,6 +28,11 @@ class SmsController extends Controller
     protected $kullaniciSifre     = '';
     protected $config;
 
+    function __construct()
+    {
+        $config = Config::get("AcrSmsConfig");
+    }
+
     function index()
     {
         $my  = new my();
@@ -93,7 +98,8 @@ class SmsController extends Controller
 
     function gonderilen_sms_incele($sms_id)
     {
-        $sms_model        = new Sms();
+        $config           =
+        $sms_model = new Sms();
         $sms_grup_model   = new Sms_grup();
         $sms_rehber_model = new Sms_rehber();
 
@@ -301,7 +307,7 @@ class SmsController extends Controller
         }
         array_unique($telDizi);
 
-        $config                 = Config::get("AcrSmsConfig");
+
         $mesajData['user']      = array(
             'name' => $config['kullaniciAdi'],
             'pass' => $config['kullaniciSifre']
