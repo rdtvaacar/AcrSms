@@ -17,12 +17,21 @@ class Sms extends Model
 
     function uye_id()
     {
-        return 0;
+        if (Auth::check()) {
+            return Auth::user()->id;
+        } else {
+            return 0;
+        }
+
     }
 
     function kurum_id()
     {
-        return 0;
+        if (Auth::check()) {
+            return Auth::user()->kurum_id;
+        } else {
+            return 0;
+        }
     }
 
     function gruplar()
