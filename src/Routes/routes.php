@@ -3,8 +3,6 @@
 Route::get('/acr_sms', function () {
     return AcrSms::index();
 });
-
-
 /*Route::post('acr_sms_grup_olustur', 'AcrSms@grup_olustur');
 Route::post('acr_sms_grup_duzenle', 'AcrSms@sms_grup_duzenle');
 Route::post('acr_sms_grup_sil', 'AcrSms@grup_sil');*/
