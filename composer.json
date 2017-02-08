@@ -1,0 +1,22 @@
+{
+  "name": "acr/sms",
+  "description": "SMS Paketi",
+  "type": "package",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "rdtvaacar",
+      "email": "acarbey15@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Acr\\Sms\\": "src/"
+    }
+  },
+  "minimum-stability": "dev",
+  "require": {
+    "php": ">=5.4",
+    "illuminate/config": "~5.0"
+  }
+}
