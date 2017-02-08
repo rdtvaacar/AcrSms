@@ -19,7 +19,7 @@ class Acr_smsServiceProvider extends ServiceProvider
             __DIR__ . '/../config/AcrSmsConfig.php' => config_path('AcrSmsConfig.php'),
         ]);
 
-        require __DIR__ . '/routes/routes.php';
+        require __DIR__ . '/Routes/routes.php';
     }
 
     /**
