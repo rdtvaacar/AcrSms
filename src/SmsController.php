@@ -98,8 +98,8 @@ class SmsController extends Controller
 
     function gonderilen_sms_incele($sms_id)
     {
-        $config           =
-        $sms_model = new Sms();
+
+        $sms_model        = new Sms();
         $sms_grup_model   = new Sms_grup();
         $sms_rehber_model = new Sms_rehber();
 
@@ -309,8 +309,8 @@ class SmsController extends Controller
 
 
         $mesajData['user']      = array(
-            'name' => $config['kullaniciAdi'],
-            'pass' => $config['kullaniciSifre']
+            'name' => $this->config['kullaniciAdi'],
+            'pass' => $this->config['kullaniciSifre']
         );
         $mesajData['msgBaslik'] = '850';
         $mesajData['msgData'][] = array(
