@@ -1,5 +1,8 @@
 <?php
+Route::get('/smsView', function () {
+    return AcrSms::smsView();
 
+});
 Route::get('/acr_sms', function () {
     return AcrSms::index();
 });
