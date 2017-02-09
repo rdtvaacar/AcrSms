@@ -1,11 +1,10 @@
 <?php
-
 namespace Acr\Sms;
 
 use Illuminate\Support\ServiceProvider;
 
 
-class Acr_smsServiceProvider extends ServiceProvider
+class AcrSmsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
@@ -14,6 +13,7 @@ class Acr_smsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__ . '/Views', 'acr_views');
 
         $this->publishes([
             __DIR__ . '/../config/AcrSmsConfig.php' => config_path('AcrSmsConfig.php'),
