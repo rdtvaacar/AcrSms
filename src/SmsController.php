@@ -33,6 +33,13 @@ class SmsController extends Controller
         $this->config = Config::get("AcrSmsConfig");
     }
 
+    function smsView()
+    {
+        $my  = new my();
+        $sms = new SmsController();
+        return view('acr_views::acr_sms', compact('sms', 'my'));
+    }
+
     function index()
     {
         $my  = new my();
