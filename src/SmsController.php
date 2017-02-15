@@ -242,7 +242,9 @@ class SmsController extends Controller
             $tel[] = $rehberDatum->sr_tel;
         }
         if (!empty(Input::get('sms_tel'))) {
-            $sms_telDizi = explode(",", Input::get('sms_tel'));
+            $sms_tel     = Input::get('sms_tel');
+            $sms_telDizi = str_replace(["\n", "  ", " ", "-", "."], [",", ",", ",", ",", ","], $sms_tel);
+            $sms_telDizi = explode(",", $sms_telDizi);
             foreach ($sms_telDizi as $item) {
                 $tel[]   = $item;
                 $data3[] = [
