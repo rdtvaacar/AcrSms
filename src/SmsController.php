@@ -177,7 +177,7 @@ class SmsController extends Controller
         $form .= '<textarea style="height: 70px;" name="s_mesaj" id="s_mesaj" class="form-control"></textarea>';
         $form .= '<div style=" float: left; width: 45%; "><strong>Grup Ekle</strong><br>' . self::grup_secim() . '</div>';
         $form .= '<div style=" float: right; width: 45%; "><strong>Numara Ekle</strong><br>' . self::numara_secim() . '</div>';
-        $form .= '<label>Rehber Dışında Numara (Aralarında virgül olmalı ÖRN: 555 555 5555, 5444444444)</label>';
+        $form .= '<label>Rehber Dışında Numara </label>';
         $form .= '<textarea style="height: 70px;" name="sms_tel" id="sms_tel" class="form-control"></textarea>';
         $form .= '<button class="btn btn-block btn-info">SMS Gönder</button>';
         $form .= Form::close();
@@ -521,7 +521,7 @@ class SmsController extends Controller
         $form .= '<label>Açıklama</label>';
         $form .= '<textarea name="sg_aciklama" id="sg_aciklama" class="form-control">' . $sg_aciklama . '</textarea>';
         $form .= self::numara_secim($dataNum);
-        $form .= '<label>Rehber Dışında Numara (Aralarında virgül olmalı ÖRN: 555 555 5555, 5444444444)</label>';
+        $form .= '<label>Rehber Dışında Numara </label>';
         $form .= '<textarea style="height: 70px;" name="grup_form_olustur_tel" id="grup_form_olustur_tel" class="form-control"></textarea>';
         $form .= empty($id) ? '' : '<input name="sms_grup_id" id="sms_grup_id" value="' . $id . '" type="hidden"/>';
         $form .= '<button class="btn btn-block btn-info">Grup Oluştur</button>';
