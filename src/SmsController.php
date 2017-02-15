@@ -243,7 +243,7 @@ class SmsController extends Controller
         }
         if (!empty(Input::get('sms_tel'))) {
             $sms_tel     = Input::get('sms_tel');
-            $sms_telDizi = str_replace(["\n", "  ", " ", "-", "."], [",", ",", ",", ",", ","], $sms_tel);
+            $sms_telDizi = str_replace(["\n", "  ", " ", "-", ".", ",,", ",,,"], [",", ",", ",", ",", ",", ",", ","], $sms_tel);
             $sms_telDizi = explode(",", $sms_telDizi);
             foreach ($sms_telDizi as $item) {
                 $tel[]   = $item;
@@ -394,7 +394,8 @@ class SmsController extends Controller
         $sms_grup_tel  = new Sms_grup_tel();
         $sms_rehber_id = [];
         if (!empty(Input::get('grup_form_olustur_tel'))) {
-            $numaralar_kayitsiz = explode(',', Input::get('grup_form_olustur_tel'));
+            $sms_telDizi        = str_replace(["\n", "  ", " ", "-", ".", ",,", ",,,"], [",", ",", ",", ",", ",", ",", ","], Input::get('grup_form_olustur_tel'));
+            $numaralar_kayitsiz = explode(',', $sms_telDizi);
             foreach ($numaralar_kayitsiz as $item) {
                 $data            = [
                     'uye_id'   => $sms->uye_id(),
@@ -404,7 +405,8 @@ class SmsController extends Controller
                 $sms_rehber_id[] = $sms_rehber->insertGetId($data);
             }
         }
-        $sr_tel_id = Input::get('sr_tel_id');
+        $sr_tel_id = empty(Input::get('sr_tel_id')) ? [] : Input::get('sr_tel_id');
+
         $numaralar = array_merge($sr_tel_id, $sms_rehber_id);
         if (!empty(Input::get('sms_grup_id'))) {
             $sms_grup = $sms_grup->where('kurum_id', $sms->kurum_id())->find(Input::get('sms_grup_id'));
